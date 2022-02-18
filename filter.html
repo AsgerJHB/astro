@@ -58,7 +58,7 @@
   </head>
   <body>
     <header>
-      <button class="alle">Alle</button>
+      <button class="stjernetegn">Stjernetegn</button>
 
       <div class="dropdown">
         <button class="dropbtn">Element</button>
@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <div class="dropdown">
+      <nav class="dropdown">
         <button class="dropbtn">Styrende himmellegeme</button>
         <div class="dropdown-content">
           <button class="mars">Mars</button>
@@ -93,9 +93,56 @@
           <button class="uranus">Uranus</button>
           <button class="neptun">Neptun</button>
         </div>
-      </div>
+      </nav>
     </header>
 
     <section></section>
+
+    <template>
+      <article>
+        <img src="" alt="" class="billede" />
+        <h2 class="stjernetegn"></h2>
+        <p class="dato"></p>
+      </article>
+    </template>
+    <script>
+      const container = document.querySelector("section");
+      const temp = document.querySelector("template");
+      const nav = document.querySelector("nav");
+      const url = "https://astro-2b8c.restdb.io/rest/stjernetegn";
+      const key = "620f60b034fd6215658587a5";
+      let stjernetegn = [];
+      let filter = "alle";
+
+      const options = {
+        headers: {
+          "x-apikey": key,
+        },
+      };
+
+      async function hentdata() {
+        const respons = await fetch(url, options);
+        const json = await respons.json();
+        stjernetegn = json;
+        vis();
+      }
+
+      function vis() {
+        stjernetegn.forEach((stjernetegn) => {
+          if (stjernetegn.stjernetegn == filter || filter == "alle") {
+            const klon = temp.cloneNode(true).content;
+            klon.querySelector("h2").textContent = stjernetegn.stjernetegn;
+            // klon.querySelector("img").src =
+            //   "medium/" + ret.billednavn + "-md.jpg";
+            // klon.querySelector("img").alt = "billednavn";
+            klon.querySelector("p").textContent = stjernetegn.dato;
+            // klon
+            //   .querySelector("article")
+            //   .addEventListener("click", () => visDetaljer(ret));
+            container.appendChild(klon);
+          }
+        });
+      }
+    </script>
   </body>
 </html>
