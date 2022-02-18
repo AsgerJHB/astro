@@ -160,11 +160,11 @@
       main.textContent = "";
 
       json.forEach((stjernetegn) => {
-        if (stjernetegn.element == x || x == "alt") {
+        if (stjernetegn.billede == x || x == "alt") {
           const klon = template.cloneNode(true);
 
           klon.querySelector(".billede").src =
-            "stjernetegn/" + stjernetegn.billede + "-md.png";
+            "stjernetegn/" + stjernetegn.billede;
           klon.querySelector(".stjernetegn").textContent = stjernetegn.stjernetegn;
           klon.querySelector(".dato").textContent =
             stjernetegn.dato;
