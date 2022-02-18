@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+
       /* Style The Dropdown Button */
       .dropbtn {
         background-color: #4caf50;
@@ -54,6 +64,13 @@
       .dropdown:hover .dropbtn {
         background-color: #3e8e41;
       }
+
+      section {
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
     </style>
   </head>
   <body>
@@ -95,8 +112,7 @@
         </div>
       </div>
     </header>
-    </section>
-    <h2>Stjernetegn</h2>
+    
     <section id="stjernetegn">
       <template>
         <article>
@@ -154,11 +170,11 @@
       main.textContent = "";
 
       json.forEach((stjernetegn) => {
-        if (stjernetegn.element == x || x == "alt") {
+        if (stjernetegn.billede == x || x == "alt") {
           const klon = template.cloneNode(true);
 
           klon.querySelector(".billede").src =
-            "images/" + stjernetegn.billede + "-md.jpg";
+            "stjernetegn/" + stjernetegn.billede;
           klon.querySelector(".stjernetegn").textContent = stjernetegn.stjernetegn;
           klon.querySelector(".dato").textContent =
             stjernetegn.dato;
