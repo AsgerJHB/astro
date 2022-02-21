@@ -12,47 +12,13 @@
         <img src="logo/LOGO.svg" alt="logo" class="logobillede" />
         <button class="logobtn"></button>
       </div>
-
-      <button class="stjernetegn">STJERNETEGN</button>
-      <button class="kontakt">KONTAKT OS</button>
+      <div class="knapperNav">
+        <button class="stjernetegn">STJERNETEGN</button>
+        <button class="kontakt">KONTAKT OS</button>
+      </div>
     </nav>
   </header>
-  <!-- Css style -->
-  <style>
-    /* Web str. */
-    body {
-      background: url(baggrund/stjernepng.png);
-    }
-    .logobillede {
-      width: 20%;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .stjernetegn {
-      width: 20%;
 
-      margin-left: 60%;
-      margin-bottom: 20%;
-    }
-    .kontakt {
-      width: 20%;
-      margin-left: 60%;
-      margin-bottom: 20%;
-    }
-    main {
-      display: grid;
-      align-items: center;
-      justify-items: center;
-      width: 100vw;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-    }
-    button {
-      font-size: 1.5rem;
-    }
-  </style>
   <body>
     <main>
       <h1>ASTROLOGI OG STJERNETEGN</h1>
@@ -61,29 +27,45 @@
       <button onclick="window.location.href='filter3.html';">
         FIND DIT STJERNETEGN HER
       </button>
-
-      <div id="stjerner">
-        <div id="stjerne1_container" class="">
-          <div id="stjerne1_sprite" class=""></div>
-        </div>
-        <div id="stjerne2_container" class="">
-          <div id="stjerne2_sprite" class=""></div>
-        </div>
-        <div id="stjerne3_container" class="">
-          <div id="stjerne3_sprite" class=""></div>
-        </div>
-        <div id="stjerne4_container" class="">
-          <div id="stjerne4_sprite" class=""></div>
-        </div>
-
-        <div id="stjerne5_container" class="">
-          <div id="stjerne5_sprite" class=""></div>
-        </div>
-      </div>
     </main>
 
+    <!-- Css style -->
     <style>
-      h1 {
+      /* Web str. */
+      body {
+        background: url(baggrund/stjernepng.png);
+      }
+      .logobillede {
+        width: 20%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .stjernetegn {
+        width: 20%;
+
+        margin-left: 60%;
+        margin-bottom: 20%;
+      }
+      .kontakt {
+        width: 20%;
+        margin-left: 60%;
+        margin-bottom: 20%;
+      }
+      main {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+      }
+      button {
+        font-size: 1.5rem;
+      }
+
+      <style > h1 {
         color: aliceblue;
         margin-top: 30%;
       }
