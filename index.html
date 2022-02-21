@@ -6,25 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <header>
+  <body>
+    
     <nav>
-      <div class="logo">
-        <img src="logo/LOGO.svg" alt="logo" class="logobillede" />
-        <button class="logobtn"></button>
-      </div>
-      <div class="knapperNav">
-        <button onclick="window.location.href='filter2.html';">
-          STJERNETEGN
-        </button>
-        <button class="kontakt">KONTAKT OS</button>
+      <div><img src="logo/LOGO.svg" alt="logo" /></div>
+      <div>
+        <a href="filter2.html#overskrift">STJERNETEGN</a>
+        <a href="">KONTAKT OS</a>
       </div>
     </nav>
+   
+    
+    <header>
+      
+
+      <div class="dropdown">
+        <button class="dropbtn">Element</button>
+        <div class="dropdown-content">
+          <button data-filter="Vand">Vand</button>
+          <button data-filter="Ild">Ild</button>
+          <button data-filter="Jord">Jord</button>
+          <button data-filter="Luft">Luft</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Kvalitet</button>
+      <div class="dropdown-content">
+        <button data-filter="Kardinal">Kardinal</button>
+        <button data-filter="Fast">Fast</button>
+        <button data-filter="Bevægelig">Bevægelig</button>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Himmellegeme</button>
+      <div class="dropdown-content">
+        <button data-filter="Mars">Mars</button>
+        <button data-filter="Venus">Venus</button>
+        <button data-filter="Merkur">Merkur</button>
+        <button data-filter="Månen">Månen</button>
+        <button data-filter="Solen">Solen</button>
+        <button data-filter="Pluto">Pluto</button>
+        <button data-filter="Jupiter">Jupiter</button>
+        <button data-filter="Saturn">Saturn</button>
+        <button data-filter="Uranus">Uranus</button>
+        <button data-filter="Neptun">Neptun</button>
+      </div>
+    </div>
   </header>
 
-  <body>
     <main>
-      <h1>ASTROLOGI OG STJERNETEGN</h1>
-      <h2>DIN ONLINE INDIVIDUELLE REPOTAGE</h2>
+      <h1>"ASTROLOGI OG STJERNETEGN"</h1>
+      <h2>"DIN ONLINE INDIVIDUELLE REPOTAGE"</h2>
 
       <button onclick="window.location.href='filter2.html';">
         FIND DIT STJERNETEGN HER
@@ -34,39 +69,114 @@
     <!-- Css style -->
     <style>
       /* Web str. */
+      img {
+        max-width: 100%;
+      }
       body {
         background: url(baggrund/stjernepng.png);
       }
-      .logobillede {
-        width: 20%;
-        display: block;
+   
+       main {
+        display: grid;
+        grid-template-columns:1fr;
+        margin-left: 30%;
+      }
+      /* Style The Dropdown Button */
+      .dropbtn {
+        background-color: transparent;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+
+      button .nav {
+        background-color: transparent;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+       button {
+        /* background-color: transparent; */
+        color: rgb(0, 0, 0);
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        margin-bottom: 20%;
         margin-left: auto;
         margin-right: auto;
       }
-      .stjernetegn {
-        width: 20%;
+      
+    
 
-        margin-left: 60%;
-        margin-bottom: 20%;
-      }
-      .kontakt {
-        width: 20%;
-        margin-left: 60%;
-        margin-bottom: 20%;
-      }
-      main {
-        display: grid;
-        align-items: center;
-        justify-items: center;
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-      }
-      button {
-        font-size: 1.5rem;
+
+      a {
+        color: white;
+        text-decoration: none;
       }
 
+      /* The container <div> - needed to position the dropdown content */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown Content (Hidden by Default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #212020;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content button {
+        color: rgb(0, 0, 0);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Change color of dropdown links on hover */
+      .dropdown-content button:hover {
+        color: palevioletred;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Change the background color of the dropdown button when the dropdown content is shown */
+      .dropdown:hover .dropbtn {
+        background-color: transparent;
+      }
+
+      nav div:last-of-type {
+        place-self: center end;
+        margin-right: 3rem;
+      }
+
+      @media (min-width: 600px) {
+        nav {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+        }
+
+        a {
+          margin: 2rem;
+        }
+      }
+      
       h1 {
         color: aliceblue;
         margin-top: 30%;
@@ -75,10 +185,90 @@
         color: aliceblue;
         margin-bottom: 10%;
       }
-      .knapperNav {
-        display: grid;
-        grid-column: 1fr 1fr;
+     
+       nav img {
+        margin-right: 0;
+        height: 170px;
+        margin-left: 1rem;
+        margin-top: 1rem;
+      }
+       p {
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
       }
     </style>
   </body>
+  <!-- JavaScript -->
+<script>
+  const url = "https://astro-2b8c.restdb.io/rest/stjernetegn";
+
+  const options = {
+    headers: {
+      "x-apikey": "620f60b034fd6215658587a5",
+    },
+  };
+
+  let alleTegn;
+  let filter = "alle";
+
+  const main = document.querySelector("#stjernetegn");
+  const template = document.querySelector("template").content;
+  const header = document.querySelector("#nav");
+  const filterKnapper = document.querySelectorAll(".dropdown-content button");
+
+  document.addEventListener("DOMContentLoaded", start);
+
+  function start() {
+    console.log("start");
+    document.querySelector(".alle").addEventListener("click", setFilter);
+    filterKnapper.forEach((knap) =>
+      knap.addEventListener("click", setFilter)
+    );
+
+    async function henData() {
+      const resspons = await fetch(url, options);
+      alleTegn = await resspons.json();
+      vis();
+    }
+
+    henData();
+
+    function setFilter() {
+      filter = this.dataset.filter;
+      document.querySelector("h2").textContent = this.textContent;
+      vis();
+    }
+
+
+    function vis() {
+      console.log(alleTegn);
+      main.innerHTML = "";
+
+      alleTegn.forEach((stjernetegn) => {
+        console.log(stjernetegn.himmellegme);
+
+        if (
+          filter == stjernetegn.element ||
+          filter == "alle" ||
+          filter == stjernetegn.kvalitet ||
+          filter == stjernetegn.himmellegeme
+        ) {
+          const klon = template.cloneNode(true);
+
+          klon.querySelector(".billede").src =
+            "stjernetegn/" + stjernetegn.billede;
+          klon.querySelector(".stjernetegn").textContent =
+            stjernetegn.stjernetegn;
+          klon.querySelector(".dato").textContent = stjernetegn.dato;
+          klon.querySelector("article").addEventListener("click", () => {
+            location.href = `singleview.html?id=${stjernetegn._id}`;
+          });
+          main.appendChild(klon);
+        }
+      });
+      console.log(alleTegn);
+    }
+  }
+</script>
 </html>
