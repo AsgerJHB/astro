@@ -85,10 +85,10 @@
       async function hentData() {
         console.log("hentData");
         const respons = await fetch(url, options);
-        retter = await respons.json();
-        visStjernetegn();
+        stjernetegn = await respons.json();
+        vis();
       }
-      function visStjernetegn() {
+      function vis() {
         console.log(stjernetegn);
         document.querySelector("h2").textContent = stjernetegn;
         document.querySelector(".billede").src =
