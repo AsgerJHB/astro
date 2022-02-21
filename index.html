@@ -64,7 +64,63 @@
       <button onclick="window.location.href='filter2.html';">
         FIND DIT STJERNETEGN HER
       </button>
-    </main>
+      
+    <section id="stjernetegn">
+      <template>
+        <article>
+          <img src="" alt="" class="billede" />
+          <h2 class="stjernetegn"></h2>
+          <p class="dato"></p>
+        </article>
+      </template>
+    </section>
+  </main>
+   <footer>
+      <section id="footer">
+        <div class="wrapper">
+         
+          <div class="b">
+            <div class="adresse">
+              <h4>ADRESSE</h4>
+              <p>497 Evergreen Rd.</p>
+              <p> Roseville, CA 95673</p>
+            </div>
+            <div class="telefon">
+              <h4>TELEFON</h4>
+              <p>+44 345 678 903</p>
+            </div>
+          </div>
+          <div class="email">
+            <div class="email">
+              <p>adobexd@mail.com</p>
+            </div>
+
+            <div class="folg_med">
+              <h4>FØLG MED PÅ</h4>
+              <div class="wrapper_social">
+                <div class="instagram">
+                  <a href="https://instagram.com/zodiacbear?utm_medium=copy_link">
+                    <img src="socialemedierlogo/Instagram.svg" alt="instagram"
+                  /></a>
+                </div>
+                <div class="facebook">
+                  <a href="https://www.facebook.com/TheZodiacSign/"
+                    ><img src="socialemedierlogo/Facebook.svg" alt="Facebook"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="logo">
+          <img
+            src="socialemedierlogo/logo-kopi.svg"
+            alt="logo"
+          />
+        </div>
+      </section>
+    </footer>
+    
 
     <!-- Css style -->
     <style>
@@ -114,8 +170,6 @@
         margin-right: auto;
       }
       
-    
-
 
       a {
         color: white;
@@ -197,9 +251,89 @@
         text-align: center;
         text-transform: uppercase;
       }
+      /* Footer */
+      footer {
+        
+  margin-top: 5%;
+
+  padding-inline: 2%;
+  background-color: #ffffff;
+}
+#footer {
+  padding-bottom: 2%;
+}
+
+#footer .wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
+}
+footer h4 {
+  font-size: 1rem;
+  text-align: start;
+}
+.wrapper_aben {
+  display: flex;
+  gap: 15px;
+}
+.abningstid {
+  padding-top: 15%;
+  text-align: inherit;
+  padding-left: 5%;
+}
+.abningstid h4 {
+  padding-left: 0;
+}
+.email,
+.adresse,
+.telefon {
+  padding-top: 15%;
+  text-align: inherit;
+  padding-left: 10%;
+  color: black;
+}
+
+.folg_med {
+  padding-top: 36%;
+  text-align: inherit;
+  padding-left: 10%;
+  color: black;
+}
+.wrapper_social {
+  display: flex;
+}
+footer .instagram img {
+  width: 50%;
+}
+
+.logo img {
+  border-radius: 50%;
+  width: 35%;
+  margin-left: 35%;
+}
+@media (min-width: 600px) {
+  #footer {
+    display: flex;
+  }
+  h4 {
+    text-align: start;
+  }
+  .logo {
+    padding-top: 10%;
+  }
+  .logo img {
+    width: 75%;
+
+    margin-left: 0;
+  }
+  .folg_med {
+    padding-top: 22%;
+  }
+}
+      
     </style>
   </body>
-  <!-- JavaScript -->
+ <!-- JavaScript -->
 <script>
   const url = "https://astro-2b8c.restdb.io/rest/stjernetegn";
 
@@ -240,6 +374,12 @@
       vis();
     }
 
+    //   function filtrerStjernetegn() {
+    //     console.log("filtrerStjernetegn");
+    //     let klikketPaa = this.dataset.stjernetegn;
+    //     console.log("klikketPaa :" + klikketPaa);
+    //     vis(json, klikketPaa);
+    //   }
 
     function vis() {
       console.log(alleTegn);
@@ -271,4 +411,5 @@
     }
   }
 </script>
+
 </html>
