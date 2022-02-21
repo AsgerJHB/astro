@@ -85,20 +85,20 @@
       async function hentData() {
         console.log("hentData");
         const respons = await fetch(url, options);
-        retter = await respons.json();
-        visStjernetegn();
+        stjernetegn = await respons.json();
+        vis();
       }
-      function visStjernetegn() {
+      function vis() {
         console.log(stjernetegn);
-        document.querySelector("h2").textContent = stjernetegn;
+        document.querySelector("h2").textContent = stjernetegn.stjernetegn;
         document.querySelector(".billede").src =
-          "images/" + stjernetegn.billednavn + "-md.jpg";
-        document.querySelector(".dato").textContent =
+          "stjernetegn/" + stjernetegn.billede;
+        document.querySelector(".dato").textContent ="Fødselsdag: "+
           stjernetegn.dato;
-        document.querySelector(".element").textContent =
+        document.querySelector(".element").textContent ="Element: "+
           stjernetegn.element;
-        document.querySelector(".kvalitet").textContent = stjernetegn.kvalitet;
-        document.querySelector(".himmellegeme").textContent =
+        document.querySelector(".kvalitet").textContent ="Kvalitet: " +stjernetegn.kvalitet;
+        document.querySelector(".himmellegeme").textContent = "Himmellegeme: "+
           stjernetegn.himmellegeme;
       }
 
