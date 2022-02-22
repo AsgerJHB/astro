@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.typekit.net/buu2qyd.css" />
   </head>
   <body>
-    
     <nav>
       <div><img src="logo/LOGO.svg" alt="logo" /></div>
       <div>
@@ -15,75 +15,33 @@
         <a href="">KONTAKT OS</a>
       </div>
     </nav>
-   
-    
-    <header>
-      
-
-      <div class="dropdown">
-        <button class="dropbtn">Element</button>
-        <div class="dropdown-content">
-          <button data-filter="Vand">Vand</button>
-          <button data-filter="Ild">Ild</button>
-          <button data-filter="Jord">Jord</button>
-          <button data-filter="Luft">Luft</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn">Kvalitet</button>
-      <div class="dropdown-content">
-        <button data-filter="Kardinal">Kardinal</button>
-        <button data-filter="Fast">Fast</button>
-        <button data-filter="Bevægelig">Bevægelig</button>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn">Himmellegeme</button>
-      <div class="dropdown-content">
-        <button data-filter="Mars">Mars</button>
-        <button data-filter="Venus">Venus</button>
-        <button data-filter="Merkur">Merkur</button>
-        <button data-filter="Månen">Månen</button>
-        <button data-filter="Solen">Solen</button>
-        <button data-filter="Pluto">Pluto</button>
-        <button data-filter="Jupiter">Jupiter</button>
-        <button data-filter="Saturn">Saturn</button>
-        <button data-filter="Uranus">Uranus</button>
-        <button data-filter="Neptun">Neptun</button>
-      </div>
-    </div>
-  </header>
 
     <main>
-      <h1>"ASTROLOGI OG STJERNETEGN"</h1>
-      <h2>"DIN ONLINE INDIVIDUELLE REPOTAGE"</h2>
+      <h1>ASTROLOGI OG STJERNETEGN</h1>
+      <h2>DIN ONLINE INDIVIDUELLE REPOTAGE</h2>
 
-      <button onclick="window.location.href='filter2.html';">
+      <button id="glow" onclick="window.location.href='filter2.html';">
         FIND DIT STJERNETEGN HER
       </button>
-      
-    <section id="stjernetegn">
-      <template>
-        <article>
-          <img src="" alt="" class="billede" />
-          <h2 class="stjernetegn"></h2>
-          <p class="dato"></p>
-        </article>
-      </template>
-    </section>
-  </main>
-   <footer>
+
+      <section id="stjernetegn">
+        <template>
+          <article>
+            <img src="" alt="" class="billede" />
+            <h2 class="stjernetegn"></h2>
+            <p class="dato"></p>
+          </article>
+        </template>
+      </section>
+    </main>
+    <footer>
       <section id="footer">
         <div class="wrapper">
-         
           <div class="b">
             <div class="adresse">
               <h4>ADRESSE</h4>
               <p>497 Evergreen Rd.</p>
-              <p> Roseville, CA 95673</p>
+              <p>Roseville, CA 95673</p>
             </div>
             <div class="telefon">
               <h4>TELEFON</h4>
@@ -99,7 +57,9 @@
               <h4>FØLG MED PÅ</h4>
               <div class="wrapper_social">
                 <div class="instagram">
-                  <a href="https://instagram.com/zodiacbear?utm_medium=copy_link">
+                  <a
+                    href="https://instagram.com/zodiacbear?utm_medium=copy_link"
+                  >
                     <img src="socialemedierlogo/Instagram.svg" alt="instagram"
                   /></a>
                 </div>
@@ -113,14 +73,10 @@
           </div>
         </div>
         <div class="logo">
-          <img
-            src="socialemedierlogo/logo-kopi.svg"
-            alt="logo"
-          />
+          <img src="socialemedierlogo/logo-kopi.svg" alt="logo" />
         </div>
       </section>
     </footer>
-    
 
     <!-- Css style -->
     <style>
@@ -130,12 +86,23 @@
       }
       body {
         background: url(baggrund/stjernepng.png);
+
+        background-position: 1% 1%;
+        animation: baggrund 70s linear infinite;
       }
-   
-       main {
+
+      @keyframes baggrund {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: -2122px 0;
+        }
+      }
+
+      main {
         display: grid;
-        grid-template-columns:1fr;
-        margin-left: 30%;
+        grid-template-columns: 1fr;
       }
       /* Style The Dropdown Button */
       .dropbtn {
@@ -157,23 +124,45 @@
         cursor: pointer;
         text-transform: uppercase;
       }
-       button {
-        /* background-color: transparent; */
-        color: rgb(0, 0, 0);
-        padding: 16px;
+      button {
+        padding: 1rem;
         font-size: 16px;
-        border: none;
+        border: solid;
         cursor: pointer;
         text-transform: uppercase;
-        margin-bottom: 20%;
+        margin-bottom: 10rem;
         margin-left: auto;
         margin-right: auto;
+        font-family: "tablet-gothic", sans-serif;
+        background-color: transparent;
+        color: white;
+        border-color: white;
+        border-radius: 1rem;
       }
-      
 
       a {
         color: white;
         text-decoration: none;
+        font-family: "tablet-gothic", sans-serif;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        margin-left: 0.6rem;
+      }
+
+      /* glow knap */
+      #glow {
+        text-align: center;
+        animation: glow 1s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          box-shadow: 0 0 10px #fff, 0 0 30px #e60073, 0 0 40px #e60073;
+        }
+
+        to {
+          box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6;
+        }
       }
 
       /* The container <div> - needed to position the dropdown content */
@@ -217,199 +206,206 @@
 
       nav div:last-of-type {
         place-self: center end;
-        margin-right: 3rem;
+        margin-right: 2.5rem;
+      }
+      nav {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
       }
 
       @media (min-width: 600px) {
-        nav {
-          display: grid;
-          grid-template-columns: 1fr 2fr;
-        }
-
         a {
           margin: 2rem;
+          font-size: 1.1rem;
         }
       }
-      
+
       h1 {
         color: aliceblue;
-        margin-top: 30%;
+        margin-top: 8rem;
+        font-family: "countach", sans-serif;
+        font-style: italic;
+        text-align: center;
+        font-size: 4rem;
+        margin-bottom: 0;
       }
       h2 {
         color: aliceblue;
-        margin-bottom: 10%;
+        margin-bottom: 3rem;
+        font-family: "tablet-gothic", sans-serif;
+        text-align: center;
       }
-     
-       nav img {
+
+      nav img {
         margin-right: 0;
         height: 170px;
         margin-left: 1rem;
         margin-top: 1rem;
       }
-       p {
+      p {
         color: white;
         text-align: center;
         text-transform: uppercase;
+        font-family: "tablet-gothic", sans-serif;
       }
       /* Footer */
       footer {
-        
-  margin-top: 5%;
+        margin-top: 5%;
 
-  padding-inline: 2%;
-  background-color: #ffffff;
-}
-#footer {
-  padding-bottom: 2%;
-}
+        padding-inline: 2%;
+        background-color: #ffffff;
+      }
+      #footer {
+        padding-bottom: 2%;
+      }
 
-#footer .wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr; */
-}
-footer h4 {
-  font-size: 1rem;
-  text-align: start;
-}
-.wrapper_aben {
-  display: flex;
-  gap: 15px;
-}
-.abningstid {
-  padding-top: 15%;
-  text-align: inherit;
-  padding-left: 5%;
-}
-.abningstid h4 {
-  padding-left: 0;
-}
-.email,
-.adresse,
-.telefon {
-  padding-top: 15%;
-  text-align: inherit;
-  padding-left: 10%;
-  color: black;
-}
+      #footer .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /* grid-template-rows: 1fr 1fr; */
+      }
+      footer h4 {
+        font-size: 1rem;
+        text-align: start;
+      }
+      .wrapper_aben {
+        display: flex;
+        gap: 15px;
+      }
+      .abningstid {
+        padding-top: 15%;
+        text-align: inherit;
+        padding-left: 5%;
+      }
+      .abningstid h4 {
+        padding-left: 0;
+      }
+      .email,
+      .adresse,
+      .telefon {
+        padding-top: 15%;
+        text-align: inherit;
+        padding-left: 10%;
+        color: black;
+      }
 
-.folg_med {
-  padding-top: 36%;
-  text-align: inherit;
-  padding-left: 10%;
-  color: black;
-}
-.wrapper_social {
-  display: flex;
-}
-footer .instagram img {
-  width: 50%;
-}
+      .folg_med {
+        padding-top: 36%;
+        text-align: inherit;
+        padding-left: 10%;
+        color: black;
+      }
+      .wrapper_social {
+        display: flex;
+      }
+      footer .instagram img {
+        width: 50%;
+      }
 
-.logo img {
-  border-radius: 50%;
-  width: 35%;
-  margin-left: 35%;
-}
-@media (min-width: 600px) {
-  #footer {
-    display: flex;
-  }
-  h4 {
-    text-align: start;
-  }
-  .logo {
-    padding-top: 10%;
-  }
-  .logo img {
-    width: 75%;
+      .logo img {
+        border-radius: 50%;
+        width: 35%;
+        margin-left: 35%;
+      }
 
-    margin-left: 0;
-  }
-  .folg_med {
-    padding-top: 22%;
-  }
-}
-      
+      @media (min-width: 600px) {
+        #footer {
+          display: flex;
+        }
+        h4 {
+          text-align: start;
+          font-family: "tablet-gothic", sans-serif;
+        }
+        .logo {
+          padding-top: 10%;
+        }
+        .logo img {
+          width: 75%;
+
+          margin-left: 0;
+        }
+        .folg_med {
+          padding-top: 22%;
+        }
+      }
     </style>
   </body>
- <!-- JavaScript -->
-<script>
-  const url = "https://astro-2b8c.restdb.io/rest/stjernetegn";
+  <!-- JavaScript -->
+  <script>
+    const url = "https://astro-2b8c.restdb.io/rest/stjernetegn";
 
-  const options = {
-    headers: {
-      "x-apikey": "620f60b034fd6215658587a5",
-    },
-  };
+    const options = {
+      headers: {
+        "x-apikey": "620f60b034fd6215658587a5",
+      },
+    };
 
-  let alleTegn;
-  let filter = "alle";
+    let alleTegn;
+    let filter = "alle";
 
-  const main = document.querySelector("#stjernetegn");
-  const template = document.querySelector("template").content;
-  const header = document.querySelector("#nav");
-  const filterKnapper = document.querySelectorAll(".dropdown-content button");
+    const main = document.querySelector("#stjernetegn");
+    const template = document.querySelector("template").content;
+    const header = document.querySelector("#nav");
+    const filterKnapper = document.querySelectorAll(".dropdown-content button");
 
-  document.addEventListener("DOMContentLoaded", start);
+    document.addEventListener("DOMContentLoaded", start);
 
-  function start() {
-    console.log("start");
-    document.querySelector(".alle").addEventListener("click", setFilter);
-    filterKnapper.forEach((knap) =>
-      knap.addEventListener("click", setFilter)
-    );
+    function start() {
+      console.log("start");
+      document.querySelector(".alle").addEventListener("click", setFilter);
+      filterKnapper.forEach((knap) =>
+        knap.addEventListener("click", setFilter)
+      );
 
-    async function henData() {
-      const resspons = await fetch(url, options);
-      alleTegn = await resspons.json();
-      vis();
+      async function henData() {
+        const resspons = await fetch(url, options);
+        alleTegn = await resspons.json();
+        vis();
+      }
+
+      henData();
+
+      function setFilter() {
+        filter = this.dataset.filter;
+        document.querySelector("h2").textContent = this.textContent;
+        vis();
+      }
+
+      //   function filtrerStjernetegn() {
+      //     console.log("filtrerStjernetegn");
+      //     let klikketPaa = this.dataset.stjernetegn;
+      //     console.log("klikketPaa :" + klikketPaa);
+      //     vis(json, klikketPaa);
+      //   }
+
+      function vis() {
+        console.log(alleTegn);
+        main.innerHTML = "";
+
+        alleTegn.forEach((stjernetegn) => {
+          console.log(stjernetegn.himmellegme);
+
+          if (
+            filter == stjernetegn.element ||
+            filter == "alle" ||
+            filter == stjernetegn.kvalitet ||
+            filter == stjernetegn.himmellegeme
+          ) {
+            const klon = template.cloneNode(true);
+
+            klon.querySelector(".billede").src =
+              "stjernetegn/" + stjernetegn.billede;
+            klon.querySelector(".stjernetegn").textContent =
+              stjernetegn.stjernetegn;
+            klon.querySelector(".dato").textContent = stjernetegn.dato;
+            klon.querySelector("article").addEventListener("click", () => {
+              location.href = `singleview.html?id=${stjernetegn._id}`;
+            });
+            main.appendChild(klon);
+          }
+        });
+        console.log(alleTegn);
+      }
     }
-
-    henData();
-
-    function setFilter() {
-      filter = this.dataset.filter;
-      document.querySelector("h2").textContent = this.textContent;
-      vis();
-    }
-
-    //   function filtrerStjernetegn() {
-    //     console.log("filtrerStjernetegn");
-    //     let klikketPaa = this.dataset.stjernetegn;
-    //     console.log("klikketPaa :" + klikketPaa);
-    //     vis(json, klikketPaa);
-    //   }
-
-    function vis() {
-      console.log(alleTegn);
-      main.innerHTML = "";
-
-      alleTegn.forEach((stjernetegn) => {
-        console.log(stjernetegn.himmellegme);
-
-        if (
-          filter == stjernetegn.element ||
-          filter == "alle" ||
-          filter == stjernetegn.kvalitet ||
-          filter == stjernetegn.himmellegeme
-        ) {
-          const klon = template.cloneNode(true);
-
-          klon.querySelector(".billede").src =
-            "stjernetegn/" + stjernetegn.billede;
-          klon.querySelector(".stjernetegn").textContent =
-            stjernetegn.stjernetegn;
-          klon.querySelector(".dato").textContent = stjernetegn.dato;
-          klon.querySelector("article").addEventListener("click", () => {
-            location.href = `singleview.html?id=${stjernetegn._id}`;
-          });
-          main.appendChild(klon);
-        }
-      });
-      console.log(alleTegn);
-    }
-  }
-</script>
-
+  </script>
 </html>
