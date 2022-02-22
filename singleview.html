@@ -19,29 +19,40 @@
     }
 
     main {
-      display: grid;
-      grid-template-columns: 1fr minmax(0, 1100px) 1fr;
-      margin: 1rem;
+      width: 90vw;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     article {
-      grid-column: 2/3;
       margin-bottom: 10rem;
+      margin: 1rem;
     }
 
-    #info_boks {
-      border-color: white;
-      border-style: solid;
+    article div {
+      margin-bottom: 1rem;
     }
 
-    #beskrivelse {
+    .info_boks {
       border-color: white;
       border-style: solid;
+      border-width: 1px;
+      padding: 1rem;
+      border-radius: 1rem;
     }
-    #info_boks p {
+
+    .info_boks p {
       margin-bottom: 0.5rem;
       text-transform: uppercase;
       font-family: "tablet-gothic", sans-serif;
+    }
+
+    article div:last-of-type p {
+      text-transform: none;
+    }
+
+    article div:last-of-type {
+      grid-column: span 2;
     }
 
     /*********** navigation **********/
@@ -79,7 +90,7 @@
     h2 {
       color: white;
       text-align: center;
-      grid-column: 2/3;
+
       text-transform: uppercase;
       margin-top: 2rem;
       margin-bottom: 1rem;
@@ -89,7 +100,7 @@
 
     h3 {
       color: white;
-      grid-column: 2/3;
+
       text-transform: uppercase;
       margin-top: 2rem;
       margin-bottom: 1rem;
@@ -101,7 +112,7 @@
       margin-top: auto;
       margin-bottom: auto;
       margin-left: 0;
-      grid-column: 2/3;
+      /*  */
     }
 
     img {
@@ -113,7 +124,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
-        grid-column: 2/3;
+
         margin-bottom: 10rem;
       }
 
@@ -123,7 +134,7 @@
         margin-left: 2rem;
       }
 
-      #info_boks {
+      .info_boks {
         border-style: solid;
         border-radius: 1rem;
         border-color: white;
@@ -147,13 +158,13 @@
       <h2 class="stjernetegn"></h2>
       <article>
         <div><img src="" alt="" class="billede" /></div>
-        <div id="info_boks">
+        <div class="info_boks">
           <p class="dato"></p>
           <p class="element"></p>
           <p class="kvalitet"></p>
           <p class="styrende himmellegeme"></p>
         </div>
-        <div id="beskrivelse">
+        <div class="info_boks">
           <h3 class="stjernetegn"></h3>
           <p class="beskrivende"></p>
         </div>
@@ -178,6 +189,9 @@
         stjernetegn = await respons.json();
         vis();
       }
+
+      const info = document.querySelectorAll(".info_boks");
+
       function vis() {
         console.log(stjernetegn);
         document.querySelector(".stjernetegn").textContent =
@@ -196,6 +210,27 @@
           "Om: " + stjernetegn.stjernetegn;
         document.querySelector(".beskrivende").textContent =
           stjernetegn.beskrivende;
+
+        if (stjernetegn.element == "Ild") {
+          info.forEach((boks) => {
+            boks.style.borderColor = "#FFA750";
+          });
+        }
+        if (stjernetegn.element == "Vand") {
+          info.forEach((boks) => {
+            boks.style.borderColor = "#1367A2";
+          });
+        }
+        if (stjernetegn.element == "Luft") {
+          info.forEach((boks) => {
+            boks.style.borderColor = "#5762B2";
+          });
+        }
+        if (stjernetegn.element == "Jord") {
+          info.forEach((boks) => {
+            boks.style.borderColor = "#FC7EAB";
+          });
+        }
       }
 
       hentData();
