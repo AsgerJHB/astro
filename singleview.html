@@ -5,71 +5,158 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Singleview</title>
-    <link rel="stylesheet" href="https://use.typekit.net/buu2qyd.css">
-
-
+    <link rel="stylesheet" href="https://use.typekit.net/buu2qyd.css" />
   </head>
-  <!-- CSS -->
-  <!-- <style>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
     body {
-      background-color: beige;
+      background-color: black;
     }
-    h2 {
-      text-align: center;
-    }
-    .kortbeskrivelse {
-      text-align: center;
-    }
-    .langbeskrivelse {
-      text-align: center;
-      margin-left: 5%;
-      margin-right: 5%;
-    }
-    .pris {
-      text-align: center;
-      margin-left: 5%;
-      margin-right: 5%;
-      margin-bottom: 5%;
-    }
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
+
     main {
-      background-color: rgb(231, 168, 91);
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 1100px) 1fr;
+      margin: 1rem;
     }
-    h1 {
-      text-align: center;
-      font-family: "Courier New", Courier, monospace;
-      font-size: 3rem;
+
+    article {
+      grid-column: 2/3;
+      margin-bottom: 10rem;
     }
-    h2 {
-      font-family: "Courier New", Courier, monospace;
-      font-size: 2rem;
+
+    #info_boks {
+      border-color: white;
+      border-style: solid;
     }
+
+    #beskrivelse {
+      border-color: white;
+      border-style: solid;
+    }
+    #info_boks p {
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      font-family: "tablet-gothic", sans-serif;
+    }
+
+    /*********** navigation **********/
+
+    nav img {
+      margin-right: 0;
+      height: 170px;
+      margin-left: 1rem;
+      margin-top: 1rem;
+    }
+
+    nav div:last-of-type {
+      place-self: center end;
+      margin-right: 3rem;
+    }
+    nav {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-family: "tablet-gothic", sans-serif;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      margin-left: 0.6rem;
+    }
+
     p {
-      font-family: "Courier New", Courier, monospace;
+      color: white;
+      font-family: "tablet-gothic", sans-serif;
     }
-    button {
-      font-family: "Courier New", Courier, monospace;
-      font-weight: bolder;
-      font-size: 1rem;
-    } -->
+
+    h2 {
+      color: white;
+      text-align: center;
+      grid-column: 2/3;
+      text-transform: uppercase;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-family: "tablet-gothic", sans-serif;
+    }
+
+    h3 {
+      color: white;
+      grid-column: 2/3;
+      text-transform: uppercase;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-family: "tablet-gothic", sans-serif;
+    }
+
+    main button {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 0;
+      grid-column: 2/3;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    @media (min-width: 800px) {
+      article {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        grid-column: 2/3;
+        margin-bottom: 10rem;
+      }
+
+      main button {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 2rem;
+      }
+
+      #info_boks {
+        border-style: solid;
+        border-radius: 1rem;
+        border-color: white;
+        padding: 5rem;
+      }
+    }
   </style>
 
   <body>
+    <nav>
+      <div>
+        <a href="index.html"><img src="logo/LOGO.svg" alt="logo" /></a>
+      </div>
+      <div>
+        <a href="filter2.html#overskrift">STJERNETEGN</a>
+        <a href="">KONTAKT OS</a>
+      </div>
+    </nav>
     <main>
       <button>Tilbage</button>
+      <h2 class="stjernetegn"></h2>
       <article>
-        <h2 class="stjernetegn"></h2>
-        <img src="" alt="" class="billede" />
-        <p class="dato"></p>
-        <p class="element"></p>
-        <p class="kvalitet"></p>
-        <p class="styrende himmellegeme"></p>
-        <p class="beskrivende"></p>
-
+        <dix><img src="" alt="" class="billede" /></dix>
+        <dix id="info_boks">
+          <p class="dato"></p>
+          <p class="element"></p>
+          <p class="kvalitet"></p>
+          <p class="styrende himmellegeme"></p>
+        </dix>
+        <div id="beskrivelse">
+          <h3 class="stjernetegn"></h3>
+          <p class="beskrivende"></p>
+        </div>
       </article>
     </main>
     <script>
@@ -93,16 +180,22 @@
       }
       function vis() {
         console.log(stjernetegn);
-        document.querySelector("h2").textContent = stjernetegn.stjernetegn;
+        document.querySelector(".stjernetegn").textContent =
+          stjernetegn.stjernetegn;
         document.querySelector(".billede").src =
           "stjernetegn/" + stjernetegn.billede;
-        document.querySelector(".dato").textContent ="Fødselsdag: "+
-          stjernetegn.dato;
-        document.querySelector(".element").textContent ="Element: "+
-          stjernetegn.element;
-        document.querySelector(".kvalitet").textContent ="Kvalitet: " +stjernetegn.kvalitet;
-        document.querySelector(".himmellegeme").textContent = "Himmellegeme: "+
-          stjernetegn.himmellegeme;
+        document.querySelector(".dato").textContent =
+          "Fødselsdag: " + stjernetegn.dato;
+        document.querySelector(".element").textContent =
+          "Element: " + stjernetegn.element;
+        document.querySelector(".kvalitet").textContent =
+          "Kvalitet: " + stjernetegn.kvalitet;
+        document.querySelector(".himmellegeme").textContent =
+          "Himmellegeme: " + stjernetegn.himmellegeme;
+        document.querySelector("h3").textContent =
+          "Om: " + stjernetegn.stjernetegn;
+        document.querySelector(".beskrivende").textContent =
+          stjernetegn.beskrivende;
       }
 
       hentData();
