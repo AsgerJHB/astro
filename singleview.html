@@ -93,7 +93,7 @@
 
       text-transform: uppercase;
       margin-top: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 3rem;
       font-size: 1.5rem;
       font-family: "tablet-gothic", sans-serif;
     }
@@ -109,10 +109,20 @@
     }
 
     main button {
-      margin-top: auto;
-      margin-bottom: auto;
-      margin-left: 0;
-      /*  */
+      padding: 10px;
+      font-size: 0.8rem;
+      border: solid;
+      cursor: pointer;
+      text-transform: uppercase;
+      margin-bottom: 10rem;
+      padding-right: 15px;
+      padding-left: 15px;
+      font-family: "tablet-gothic", sans-serif;
+      background-color: transparent;
+      color: white;
+      border-color: white;
+      border-radius: 0.8rem;
+      border-width: 1px;
     }
 
     img {
@@ -120,12 +130,22 @@
     }
 
     @media (min-width: 800px) {
+      a {
+        margin: 2rem;
+        font-size: 1.1rem;
+      }
       article {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
 
         margin-bottom: 10rem;
+        grid-template-rows: 1fr 1fr;
+      }
+
+      article img {
+        max-height: 350px;
+        place-self: center;
       }
 
       main button {
@@ -138,7 +158,11 @@
         border-style: solid;
         border-radius: 1rem;
         border-color: white;
-        padding: 5rem;
+        padding: 4rem;
+      }
+
+      .info_boks p {
+        margin-bottom: 2rem;
       }
     }
   </style>
@@ -157,7 +181,7 @@
       <button>Tilbage</button>
       <h2 class="stjernetegn"></h2>
       <article>
-        <div><img src="" alt="" class="billede" /></div>
+        <img src="" alt="" class="billede" />
         <div class="info_boks">
           <p class="dato"></p>
           <p class="element"></p>
