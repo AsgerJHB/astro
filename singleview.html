@@ -226,9 +226,11 @@
   <body>
     <nav>
       <div>
+        <!-- indsætter logo -->
         <a href="index.html"><img src="logoren/logoren.svg" alt="logo" /></a>
       </div>
       <div>
+        <!-- henter data fra filter2.html af- overskrift -->
         <a href="filter2.html#overskrift">STJERNETEGN</a>
         <a href="">KONTAKT OS</a>
       </div>
@@ -311,7 +313,7 @@
           "Om: " + stjernetegn.stjernetegn;
         document.querySelector(".beskrivende").textContent =
           stjernetegn.beskrivende;
-
+        // her defineres det efter hvilket element det er, hvilken farve border skal være
         if (stjernetegn.element == "Ild") {
           info.forEach((boks) => {
             boks.style.borderColor = "#FFA750";
