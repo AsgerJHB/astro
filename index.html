@@ -316,84 +316,85 @@
       font-family: "tablet-gothic", sans-serif;
     }
   </style>
+  <script>
+    const url = "https://astro-2b8c.restdb.io/rest/stjernetegn";
+
+    const options = {
+      headers: {
+        "x-apikey": "620f60b034fd6215658587a5",
+      },
+    };
+
+    let alleTegn;
+    let filter = "alle";
+
+    const main = document.querySelector("#stjernetegn");
+    const template = document.querySelector("template").content;
+    const header = document.querySelector("#nav");
+    const filterKnapper = document.querySelectorAll(".dropdown-content button");
+
+    document.addEventListener("DOMContentLoaded", start);
+
+    function start() {
+      console.log("start");
+      document.querySelector(".alle").addEventListener("click", setFilter);
+      filterKnapper.forEach((knap) =>
+        knap.addEventListener("click", setFilter)
+      );
+
+      async function henData() {
+        const resspons = await fetch(url, options);
+        alleTegn = await resspons.json();
+        vis();
+      }
+
+      henData();
+
+      function setFilter() {
+        filter = this.dataset.filter;
+        document.querySelector("h2").textContent = this.textContent;
+        vis();
+      }
+
+      //   function filtrerStjernetegn() {
+      //     console.log("filtrerStjernetegn");
+      //     let klikketPaa = this.dataset.stjernetegn;
+      //     console.log("klikketPaa :" + klikketPaa);
+      //     vis(json, klikketPaa);
+      //   }
+
+      function vis() {
+        console.log(alleTegn);
+        main.innerHTML = "";
+
+        alleTegn.forEach((stjernetegn) => {
+          console.log(stjernetegn.himmellegme);
+
+          if (
+            filter == stjernetegn.element ||
+            filter == "alle" ||
+            filter == stjernetegn.kvalitet ||
+            filter == stjernetegn.himmellegeme
+          ) {
+            const klon = template.cloneNode(true);
+
+            klon.querySelector(".billede").src =
+              "stjernetegn/" + stjernetegn.billede;
+            klon.querySelector(".stjernetegn").textContent =
+              stjernetegn.stjernetegn;
+            klon.querySelector(".dato").textContent = stjernetegn.dato;
+            klon.querySelector("article").addEventListener("click", () => {
+              location.href = `singleview.html?id=${stjernetegn._id}`;
+            });
+            main.appendChild(klon);
+          }
+        });
+        console.log(alleTegn);
+      }
+    }
+  </script>
 </body>
 <!-- JavaScript -->
-<script>
-  const url = "https://astro-2b8c.restdb.io/rest/stjernetegn";
 
-  const options = {
-    headers: {
-      "x-apikey": "620f60b034fd6215658587a5",
-    },
-  };
-
-  let alleTegn;
-  let filter = "alle";
-
-  const main = document.querySelector("#stjernetegn");
-  const template = document.querySelector("template").content;
-  const header = document.querySelector("#nav");
-  const filterKnapper = document.querySelectorAll(".dropdown-content button");
-
-  document.addEventListener("DOMContentLoaded", start);
-
-  function start() {
-    console.log("start");
-    document.querySelector(".alle").addEventListener("click", setFilter);
-    filterKnapper.forEach((knap) =>
-      knap.addEventListener("click", setFilter)
-    );
-
-    async function henData() {
-      const resspons = await fetch(url, options);
-      alleTegn = await resspons.json();
-      vis();
-    }
-
-    henData();
-
-    function setFilter() {
-      filter = this.dataset.filter;
-      document.querySelector("h2").textContent = this.textContent;
-      vis();
-    }
-
-    //   function filtrerStjernetegn() {
-    //     console.log("filtrerStjernetegn");
-    //     let klikketPaa = this.dataset.stjernetegn;
-    //     console.log("klikketPaa :" + klikketPaa);
-    //     vis(json, klikketPaa);
-    //   }
-
-    function vis() {
-      console.log(alleTegn);
-      main.innerHTML = "";
-
-      alleTegn.forEach((stjernetegn) => {
-        console.log(stjernetegn.himmellegme);
-
-        if (
-          filter == stjernetegn.element ||
-          filter == "alle" ||
-          filter == stjernetegn.kvalitet ||
-          filter == stjernetegn.himmellegeme
-        ) {
-          const klon = template.cloneNode(true);
-
-          klon.querySelector(".billede").src =
-            "stjernetegn/" + stjernetegn.billede;
-          klon.querySelector(".stjernetegn").textContent =
-            stjernetegn.stjernetegn;
-          klon.querySelector(".dato").textContent = stjernetegn.dato;
-          klon.querySelector("article").addEventListener("click", () => {
-            location.href = `singleview.html?id=${stjernetegn._id}`;
-          });
-          main.appendChild(klon);
-        }
-      });
-      console.log(alleTegn);
-    }
-  }
-</script>
 
 </html>
